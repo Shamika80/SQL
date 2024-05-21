@@ -25,7 +25,6 @@ cursor.execute('''
     );
 ''')
 
-# Task 1: Data Insertion (Including John Smith)
 try:
     # Insert Members (with John Smith)
     members_data = [
@@ -34,7 +33,7 @@ try:
         (3, 'Alice Johnson', 42, 3),
         (4, 'John Smith', 30, 2)  # Add John Smith
     ]
-    cursor.executemany("INSERT INTO Members VALUES (?, ?, ?, ?)", members_data)
+    
 
     # Insert WorkoutSessions
     workout_sessions_data = [
@@ -42,7 +41,7 @@ try:
         (2, 1, '2024-05-13', 'Afternoon', 'Strength Training'),
         (3, 3, '2024-05-12', 'Evening', 'Yoga')
     ]
-    cursor.executemany("INSERT INTO WorkoutSessions VALUES (?, ?, ?, ?, ?)", workout_sessions_data)
+    
 
     conn.commit()
     print("Data inserted successfully.")
@@ -50,7 +49,7 @@ try:
 except sqlite3.Error as e:
     print("Error inserting data:", e)
 
-# Task 2: Data Update
+
 try:
     member_name = 'Jane Doe'
     new_session_time = 'Evening'

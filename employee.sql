@@ -41,7 +41,7 @@ try:
     ]
     cursor.executemany("INSERT OR IGNORE INTO Employees VALUES (?, ?, ?, ?)", employees_data)  # Use INSERT OR IGNORE to avoid duplicates
 
-    conn.commit()  # Commit the data insertion
+    conn.commit()  
 
 except sqlite3.Error as e:
     print("Error populating tables:", e)
@@ -62,7 +62,6 @@ try:
 except sqlite3.Error as e:
     print("Error fetching distinct departments:", e)
 
-# Task 2: Count Employees per Department
 try:
     cursor.execute("""
         SELECT department_name, COUNT(*) AS employee_count
@@ -79,7 +78,6 @@ try:
 except sqlite3.Error as e:
     print("Error counting employees per department:", e)
 
-# Task 3: Employees Aged 25 to 30
 try:
     cursor.execute("""
         SELECT name, age, department_id
